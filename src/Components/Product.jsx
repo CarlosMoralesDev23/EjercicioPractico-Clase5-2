@@ -19,6 +19,10 @@ const Product = ({ product, addToCart }) => {
             <div className="product-button">
                 <button onClick={()=>addToCart(product)}>Agregar</button>
             </div>
+
+            <div className="containerStock">
+                <span className="stock">Disponibles:{product.stock}</span>
+            </div>
         </div>
     );
 };

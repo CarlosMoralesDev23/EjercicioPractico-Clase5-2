@@ -87,11 +87,21 @@
     border-radius: 25px;
     transition: background-color 0.3s ease;
     width: 80%;
+
+    &:hover {
+        background-color: #14532d;
+    }
 }
 
-.product-button button:hover {
-    background-color: #14532d;
+.containerStock{
+    span{
+        color: black;
+        font-weight: bolder;
+        font-size: 20px
+    };
 }
+
+
 
 @media (max-width: 768px) {
     .productCard {

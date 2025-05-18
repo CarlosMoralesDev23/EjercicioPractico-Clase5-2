@@ -60,6 +60,10 @@ const Home = ({
             )}
 
             <Footer />
+
+            {
+                console.log(productos)
+            }
         </>
     );
 };
