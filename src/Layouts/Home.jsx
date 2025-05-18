@@ -4,10 +4,9 @@ import Main from "../Components/Main";
 import Cart from "../Components/Cart/Cart";
 import ListProducts from "../Components/ListProducts";
 import Footer from "../Components/Footer";
-import { products } from "../Utils/data.js";
 import { useState, useEffect } from "react";
 import Loader from "../assets/Loader.gif";
-import NF404NF from "../assets/NF404NF.gif"
+import NF404NF from "../assets/NF404NF.gif";
 
 const Home = ({
     cart,
@@ -19,7 +18,7 @@ const Home = ({
 }) => {
     const [productos, setProductos] = useState([]);
     const [carga, setCarga] = useState(true);
-    const [error, setError] = useState(false)
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         fetch(
@@ -27,17 +26,17 @@ const Home = ({
         )
             .then((respuesta) => respuesta.json())
             .then((datos) => {
-                setProductos(datos), setCarga(false);
-                console.log(datos);
+                setTimeout(() => {
+                    setProductos(datos), setCarga(false);
+                }, 750);
             })
             .catch((error) => {
                 console.log("Error: ", error), setCarga(false), setError(true);
             });
     }, []);
 
-    if(error){
-        return <img src={NF404NF} alt="Loader" />;
-
+    {
+        error && <img src={NF404NF} />
     }
 
     return (
@@ -55,9 +54,9 @@ const Home = ({
             />
 
             {carga ? (
-                <img src={Loader} alt="Loader" />
+                <img src={Loader} />
             ) : (
-                <ListProducts addToCart={addToCart} products={productos} />
+                <ListProducts addToCart={addToCart} productos={productos} />
             )}
 
             <Footer />

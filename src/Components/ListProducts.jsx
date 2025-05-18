@@ -4,10 +4,10 @@ import "../Styles/ListProducts.css";
 import Product from "./Product";
 
 
-const ListProducts = ({ addToCart, products }) => {
+const ListProducts = ({ addToCart, productos }) => {
     return (
         <div className="containProducts">
-            {products.map((product) => (
+            {productos.map((product) => (
                 <Product
                     key={product.id}
                     product={product}
