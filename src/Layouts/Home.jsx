@@ -28,7 +28,7 @@ const Home = ({
             .then((datos) => {
                 setTimeout(() => {
                     setProductos(datos), setCarga(false);
-                }, 1000);
+                }, 500);
             })
             .catch((error) => {
                 console.log("Error: ", error), setCarga(false), setError(true);
