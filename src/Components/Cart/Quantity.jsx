@@ -8,13 +8,25 @@ const Quantity = ({product, incrementQuantity, decrementQuantity, removeProduct}
                 onClick={
                     product.quantity === 1
                         ? () => removeProduct(product)
+                        : () => decrementQuantity10(product)
+                }
+            >
+                -10
+            </button>
+            <button
+                onClick={
+                    product.quantity === 1
+                        ? () => removeProduct(product)
                         : () => decrementQuantity(product)
                 }
-            >-</button>
+            >
+                -
+            </button>
 
             <span>{product.quantity}</span>
 
             <button onClick={() => incrementQuantity(product)}>+</button>
+            <button onClick={() => incrementQuantity10(product)}>+10</button>
         </div>
     );
 };
