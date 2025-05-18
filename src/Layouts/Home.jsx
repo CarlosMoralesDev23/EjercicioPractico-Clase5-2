@@ -28,15 +28,15 @@ const Home = ({
             .then((datos) => {
                 setTimeout(() => {
                     setProductos(datos), setCarga(false);
-                }, 750);
+                }, 1000);
             })
             .catch((error) => {
                 console.log("Error: ", error), setCarga(false), setError(true);
             });
     }, []);
 
-    {
-        error && <img src={NF404NF} />
+    if (error) {
+        return <img src={NF404NF} alt="Loader" />;
     }
 
     return (
