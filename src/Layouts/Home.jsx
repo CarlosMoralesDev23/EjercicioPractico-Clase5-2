@@ -15,6 +15,8 @@ const Home = ({
     decrementQuantity,
     removeProduct,
     emptyCart,
+    decrementQuantity10,
+    incrementQuantity10,
 }) => {
     const [productos, setProductos] = useState([]);
     const [carga, setCarga] = useState(true);
@@ -51,6 +53,8 @@ const Home = ({
                 decrementQuantity={decrementQuantity}
                 removeProduct={removeProduct}
                 emptyCart={emptyCart}
+                decrementQuantity10={decrementQuantity10}
+                incrementQuantity10={incrementQuantity10}
             />
 
             {carga ? (
@@ -61,9 +65,7 @@ const Home = ({
 
             <Footer />
 
-            {
-                console.log(productos)
-            }
+            {console.log(productos)}
         </>
     );
 };

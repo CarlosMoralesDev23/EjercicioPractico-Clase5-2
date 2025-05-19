@@ -47,6 +47,19 @@ function App() {
         setCart(upDateCart);
     };
 
+    const incrementQuantity10 = (newProduct) => {
+        const upDateCart = cart.map((product) =>
+            product.id === newProduct.id
+                ? {
+                      ...product,
+                      quantity: product.quantity + 10,
+                      subtotal: (product.quantity + 10) * product.price,
+                  }
+                : product
+        );
+        setCart(upDateCart);
+    };
+
     const decrementQuantity = (newProduct) => {
         const upDateCart = cart.map((product) =>
             product.id === newProduct.id
@@ -55,6 +68,19 @@ function App() {
                         quantity: product.quantity - 1,
                       subtotal: (product.quantity - 1) * product.price,
                     }
+                : product
+        );
+        setCart(upDateCart);
+    };
+
+    const decrementQuantity10 = (newProduct) => {
+        const upDateCart = cart.map((product) =>
+            product.id === newProduct.id
+                ? {
+                      ...product,
+                      quantity: product.quantity - 10,
+                      subtotal: (product.quantity - 10) * product.price,
+                  }
                 : product
         );
         setCart(upDateCart);
@@ -80,6 +106,8 @@ function App() {
                 decrementQuantity={decrementQuantity}
                 removeProduct={removeProduct}
                 emptyCart={emptyCart}
+                decrementQuantity10={decrementQuantity10}
+                incrementQuantity10={incrementQuantity10}
             />
         </>
     );

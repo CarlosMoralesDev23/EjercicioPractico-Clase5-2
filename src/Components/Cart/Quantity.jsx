@@ -1,7 +1,14 @@
 import React from "react";
 import "../../Styles/CartStyles/Quantity.css"
 
-const Quantity = ({product, incrementQuantity, decrementQuantity, removeProduct}) => {
+const Quantity = ({
+    product,
+    incrementQuantity,
+    decrementQuantity,
+    removeProduct,
+    decrementQuantity10,
+    incrementQuantity10,
+}) => {
     return (
         <div className="botonesMenosYMas">
             <button

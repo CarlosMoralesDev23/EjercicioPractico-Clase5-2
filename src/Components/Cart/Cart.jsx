@@ -12,6 +12,8 @@ const Cart = ({
     decrementQuantity,
     removeProduct,
     emptyCart,
+    decrementQuantity10,
+    incrementQuantity10,
 }) => {
     return (
         <div className="cartContainer">
@@ -30,6 +32,8 @@ const Cart = ({
                         product={product}
                         incrementQuantity={incrementQuantity}
                         decrementQuantity={decrementQuantity}
+                        decrementQuantity10={decrementQuantity10}
+                        incrementQuantity10={incrementQuantity10}
                         removeProduct={removeProduct}
                     />
 
