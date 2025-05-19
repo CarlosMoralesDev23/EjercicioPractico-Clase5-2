@@ -1,0 +1,45 @@
+/* Styles/Nav.css */
+.navContainer {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem 2rem;
+
+    align-items: center;
+
+    h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+
+        li {
+            font-weight: bold;
+
+            a {
+                color: #fff;
+                text-decoration: none;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: #f8f8f8;
+                }
+            }
+
+            img {
+                width: 32px;
+                height: 32px;
+                vertical-align: middle;
+            }
+        }
+    }
+}
