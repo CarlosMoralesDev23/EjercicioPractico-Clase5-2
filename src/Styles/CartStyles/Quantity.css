@@ -26,3 +26,8 @@
     font-weight: bold;
     color: #343a40;
 }
+
+.cantidadYDisponible{
+    display: flex;
+    flex-direction: column;
+}

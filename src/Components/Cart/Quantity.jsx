@@ -1,5 +1,5 @@
 import React from "react";
-import "../../Styles/CartStyles/Quantity.css"
+import "../../Styles/CartStyles/Quantity.css";
 
 const Quantity = ({
     product,
@@ -12,14 +12,18 @@ const Quantity = ({
     return (
         <div className="botonesMenosYMas">
             <button
-                onClick={
-                    product.quantity === 1
-                        ? () => removeProduct(product)
-                        : () => decrementQuantity10(product)
-                }
+                onClick={() => {
+                    if (product.quantity >= 11) {
+                        decrementQuantity10(product);
+                    } else if (product.quantity === 10) {
+                        removeProduct(product);
+                    }
+                }}
+                disabled={product.quantity < 10}
             >
                 -10
             </button>
+
             <button
                 onClick={
                     product.quantity === 1
@@ -30,10 +34,23 @@ const Quantity = ({
                 -
             </button>
 
-            <span>{product.quantity}</span>
+            <div className="cantidadYDisponible">
+                <span>Cantidad: {product.quantity}</span>
+                <span>Disponible: {product.stock}</span>
+            </div>
 
             <button onClick={() => incrementQuantity(product)}>+</button>
-            <button onClick={() => incrementQuantity10(product)}>+10</button>
+
+            <button
+                onClick={() => {
+                    if (product.quantity + 10 <= product.stock) {
+                        incrementQuantity10(product);
+                    }
+                }}
+                disabled={product.quantity + 10 > product.stock}
+            >
+                +10
+            </button>
         </div>
     );
 };
