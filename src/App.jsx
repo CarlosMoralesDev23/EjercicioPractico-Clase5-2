@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { addToCart } from "./Utils/Funciones/funcionAddToCart.js";
 import { incrementQuantity, incrementQuantity10 } from "./Utils/Funciones/funcionIncrementQuantity.js";
+import { decrementQuantity, decrementQuantity10 } from "./Utils/Funciones/funcionDecrementQuantity.js";
 
 function App() {
     const [cart, setCart] = useState([]);
@@ -20,32 +21,16 @@ function App() {
         setCart(prevCart => incrementQuantity10(prevCart, newProduct))
     }
 
+    const handleDecrementQuantity = (newProduct)=>{
+        setCart( prevCart => decrementQuantity(prevCart, newProduct))
+    }
 
-    const decrementQuantity = (newProduct) => {
-        const upDateCart = cart.map((product) =>
-            product.id === newProduct.id
-                ? {
-                        ...product,
-                        quantity: product.quantity - 1,
-                      subtotal: (product.quantity - 1) * product.price,
-                    }
-                : product
-        );
-        setCart(upDateCart);
-    };
+    const handleDecrementQuantity10 = (newProduct)=>{
+        setCart( prevCart => decrementQuantity10(prevCart, newProduct))
+    }
 
-    const decrementQuantity10 = (newProduct) => {
-        const upDateCart = cart.map((product) =>
-            product.id === newProduct.id
-                ? {
-                      ...product,
-                      quantity: product.quantity - 10,
-                      subtotal: (product.quantity - 10) * product.price,
-                  }
-                : product
-        );
-        setCart(upDateCart);
-    };
+
+
 
     const removeProduct = (inCartProduct) => {
         const upDateCart = cart.filter((product) =>
@@ -64,10 +49,10 @@ function App() {
                 cart={cart}
                 addToCart={handleAddToCart}
                 incrementQuantity={handleIncrementQuantity}
-                decrementQuantity={decrementQuantity}
+                decrementQuantity={handleDecrementQuantity}
                 removeProduct={removeProduct}
                 emptyCart={emptyCart}
-                decrementQuantity10={decrementQuantity10}
+                decrementQuantity10={handleDecrementQuantity10}
                 incrementQuantity10={handleIncrementQuantity10}
             />
         </>
