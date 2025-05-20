@@ -11,9 +11,9 @@
 
     display: flex;
     flex-direction: column;
-    /* Eliminamos justify-content: space-between; */
+
     align-items: stretch;
-    min-height: 450px; /* Establecemos una altura mínima */
+    min-height: 450px; 
 }
 
 .productCard:hover {
@@ -36,7 +36,7 @@
 .productImage {
     text-align: center;
     margin-bottom: 10px;
-    flex-grow: 1; /* Permite que la imagen ocupe espacio vertical */
+    flex-grow: 1; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,7 +71,7 @@
 
 .product-button {
     text-align: center;
-    margin-top: auto; /* Empuja el botón hacia la parte inferior */
+    margin-top: auto; 
 }
 
 .product-button button {

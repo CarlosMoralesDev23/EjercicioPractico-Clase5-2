@@ -2,10 +2,10 @@ import "./App.css";
 import Home from "./Layouts/Home.jsx";
 import { useState } from "react";
 
-import { addToCart } from "./Utils/Funciones/funcionAddToCart.js";
-import { incrementQuantity, incrementQuantity10 } from "./Utils/Funciones/funcionIncrementQuantity.js";
-import { decrementQuantity, decrementQuantity10 } from "./Utils/Funciones/funcionDecrementQuantity.js";
-import { removeProduct, emptyCart } from "./Utils/Funciones/funcionRemoverYVaciar.js";
+import { addToCart } from "./Utils/Funciones/funcionesInProduct/funcionAddToCart.js";
+import { incrementQuantity, incrementQuantity10 } from "./Utils/Funciones/funcionesInCart/funcionIncrementQuantity.js";
+import { decrementQuantity, decrementQuantity10 } from "./Utils/Funciones/funcionesInCart/funcionDecrementQuantity.js";
+import { removeProduct, emptyCart } from "./Utils/Funciones/funcionesInCart/funcionRemoverYVaciar.js";
 
 function App() {
     const [cart, setCart] = useState([]);
