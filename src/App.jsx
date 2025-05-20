@@ -2,37 +2,42 @@ import "./App.css";
 import Home from "./Layouts/Home.jsx";
 import { useState } from "react";
 
+import { addToCart } from "./Utils/Funciones/funcionAddToCart.js";
 
 function App() {
     const [cart, setCart] = useState([]);
 
-    const addToCart = (newProduct) => {
-        const existProductInCart = cart.find(
-            (product) => product.id === newProduct.id
-        );
+    const handleAddToCart = (newProduct)=>{
+        setCart(prevCart => addToCart(prevCart, newProduct))
+    }
 
-        if (existProductInCart) {
-            const upDateCart = cart.map((product) =>
-                product.id === newProduct.id
-                    ? {
-                          ...product,
-                          quantity: product.quantity + 1,
-                          subtotal: (product.quantity + 1) * product.price,
-                      }
-                    : product
-            );
-            setCart(upDateCart);
-        } else {
-            setCart([
-                ...cart,
-                {
-                    ...newProduct,
-                    quantity: 1,
-                    subtotal: newProduct.price,
-                },
-            ]);
-        }
-    };
+    // const addToCart = (newProduct) => {
+    //     const existProductInCart = cart.find(
+    //         (product) => product.id === newProduct.id
+    //     );
+
+    //     if (existProductInCart) {
+    //         const upDateCart = cart.map((product) =>
+    //             product.id === newProduct.id
+    //                 ? {
+    //                       ...product,
+    //                       quantity: product.quantity + 1,
+    //                       subtotal: (product.quantity + 1) * product.price,
+    //                   }
+    //                 : product
+    //         );
+    //         setCart(upDateCart);
+    //     } else {
+    //         setCart([
+    //             ...cart,
+    //             {
+    //                 ...newProduct,
+    //                 quantity: 1,
+    //                 subtotal: newProduct.price,
+    //             },
+    //         ]);
+    //     }
+    // };
 
     const incrementQuantity = (newProduct) => {
         const upDateCart = cart.map((product) =>
@@ -101,7 +106,7 @@ function App() {
         <>
             <Home
                 cart={cart}
-                addToCart={addToCart}
+                addToCart={handleAddToCart}
                 incrementQuantity={incrementQuantity}
                 decrementQuantity={decrementQuantity}
                 removeProduct={removeProduct}
