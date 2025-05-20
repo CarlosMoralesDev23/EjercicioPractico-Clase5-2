@@ -18,9 +18,18 @@ const Home = ({
     decrementQuantity10,
     incrementQuantity10,
 }) => {
-    const [productos, setProductos] = useState([]);
-    const [carga, setCarga] = useState(true);
-    const [error, setError] = useState(false);
+    const [ productos, setProductos] = useState([]);
+    const [ carga, setCarga] = useState(true);
+    const [ error, setError] = useState(false);
+    const [ isCartOpen, setIsCartOpen ] = useState(false)
+
+    const openCartModal = ()=>{
+        setIsCartOpen(true)
+    }
+
+    const closeCartModal = () => {
+        setIsCartOpen(false);
+    };
 
     useEffect(() => {
         fetch(
@@ -44,7 +53,9 @@ const Home = ({
     return (
         <>
             <Header />
-            <Nav />
+            <Nav
+                openCartModal={openCartModal}
+            />
             <Main />
 
             <Cart
@@ -55,6 +66,8 @@ const Home = ({
                 emptyCart={emptyCart}
                 decrementQuantity10={decrementQuantity10}
                 incrementQuantity10={incrementQuantity10}
+                isCartOpen={isCartOpen}
+                closeCartModal={closeCartModal}
             />
 
             {carga ? (
